@@ -18,6 +18,7 @@ defmodule Issues.GithubIssues do
 
   defp handle_response({_, %{status_code: status_code, body: body}}) do
     Logger.info("Got response: status code=#{status_code}")
+    Logger.warn("Warning Debugging messages are suppressed")
     Logger.debug(fn -> inspect(body) end)
     {
       status_code |> check_for_error(),
